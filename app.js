@@ -1,10 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
-const app = express();
+import router from "./routes/user-routes";
 
-app.use("/api", (req, res, next) => {
-  res.send("Hello World");
-});
+const app = express();
+app.use(express.json());
+app.use("/api/user", router);
 
 mongoose
   .connect(
